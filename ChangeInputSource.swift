@@ -13,11 +13,6 @@
 
 import Carbon
 
-debugPrint("Arguments:", CommandLine.arguments)
-precondition(CommandLine.arguments.count == 2, "Needs an inputSourceID argument")
-
-let targetInputSourceID = CommandLine.arguments[1]
-
 let availableInputSourceNSArray = TISCreateInputSourceList(nil, false).takeRetainedValue() as NSArray
 let availableInputSource = availableInputSourceNSArray as! [TISInputSource]
 
@@ -30,6 +25,12 @@ print("Available Input Source:")
 inputSourceMap.forEach {
     debugPrint($0, $1)
 }
+print("-----------------------")
+
+debugPrint("Arguments:", CommandLine.arguments)
+precondition(CommandLine.arguments.count == 2, "Needs an inputSourceID argument")
+
+let targetInputSourceID = CommandLine.arguments[1]
 
 if let targetInputSource = inputSourceMap[targetInputSourceID] {
     TISSelectInputSource(targetInputSource)
