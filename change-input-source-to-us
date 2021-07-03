@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+/usr/local/bin/change-input-source com.apple.keylayout.ABC
